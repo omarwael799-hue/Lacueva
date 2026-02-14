@@ -26,7 +26,7 @@ export async function generateMetadata({
   return {
     title:
       locale === "ar"
-        ? "الكويفا أكوابارك | أكبر مدينة ألعاب مائية في الأردن"
+        ? "لاكويفا أكوابارك | أكبر مدينة ألعاب مائية في الأردن"
         : "La Cueva Aqua Park | The Largest Water Park in Jordan",
     description: content.home.heroDescription,
   }

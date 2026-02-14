@@ -151,11 +151,11 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <FadeUp>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-ocean text-center mb-4 text-balance">
-              {locale === "ar" ? "استكشف الكويفا" : "Explore La Cueva"}
+              {locale === "ar" ? "استكشف لاكويفا" : "Explore La Cueva"}
             </h2>
             <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12 text-pretty">
               {locale === "ar"
-                ? "اكتشف كل ما تقدمه مدينة الكويفا المائية"
+                ? "اكتشف كل ما تقدمه مدينة لاكويفا المائية"
                 : "Discover everything La Cueva Aqua Park has to offer"}
             </p>
           </FadeUp>

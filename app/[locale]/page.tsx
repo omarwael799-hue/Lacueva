@@ -230,10 +230,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <FadeUp>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-ocean text-center mb-4 text-balance">
-              {isAr ? "استكشف الكويفا" : "Explore La Cueva"}
+              {isAr ? "استكشف لاكويفا" : "Explore La Cueva"}
             </h2>
             <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12 text-pretty">
-              {isAr ? "اكتشف كل ما تقدمه مدينة الكويفا المائية" : "Discover everything La Cueva Aqua Park has to offer"}
+              {isAr ? "اكتشف كل ما تقدمه مدينة لاكويفا المائية" : "Discover everything La Cueva Aqua Park has to offer"}
             </p>
           </FadeUp>
 
