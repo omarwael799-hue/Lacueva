@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "siteName": "La Cueva Aqua Park",
+    "siteTagline": "The Fun... Starts Here",
+    "locale": "en"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About La Cueva",
+    "aboutOverview": "Overview",
+    "aboutVision": "Vision & Mission",
+    "aboutSafety": "Safety & Standards",
+    "attractions": "Attractions",
+    "waterSlides": "Water Slides",
+    "wavePool": "Wave Pool",
+    "lazyRiver": "Lazy River",
+    "adrenalineTower": "Adrenaline Tower",
+    "familyPools": "Family Pools",
+    "kidsAreaNav": "Kids Area",
+    "kidsArea": "Kids Area",
+    "kidsSlides": "Kids Slides",
+    "kidsSafety": "Safety Information",
+    "kidsAgeGuide": "Age Guidelines",
+    "food": "Food & Beverage",
+    "restaurants": "Restaurants",
+    "cafes": "Cafes",
+    "snacks": "Snacks & Drinks",
+    "events": "Events & Offers",
+    "seasonalOffers": "Seasonal Offers",
+    "birthdayParties": "Birthday Parties",
+    "privateEvents": "Private Events",
+    "schools": "Schools & Groups",
+    "schoolTrips": "School Trips",
+    "groupPackages": "Group Packages",
+    "bookingForm": "Booking Request",
+    "tickets": "Tickets & Pricing",
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "location": "Location",
+    "contact": "Contact Us"
+  },
+  "home": {
+    "heroTitle": "La Cueva Aqua Park",
+    "heroSubtitle": "The Largest Water Park in Jordan",
+    "heroDescription": "La Cueva Aqua Park is located on the Dead Sea coast and features over 25 water attractions designed for all ages, offering a safe and enjoyable experience for families and groups.",
+    "ctaTickets": "Tickets & Pricing",
+    "ctaSchools": "Schools & Groups",
+    "ctaContact": "Contact Us",
+    "sections": {
+      "attractions": {
+        "title": "Attractions",
+        "desc": "Over 26 water attractions for all ages"
+      },
+      "kidsArea": {
+        "title": "Kids Area",
+        "desc": "Safe dedicated area for kids with supervision"
+      },
+      "food": {
+        "title": "Food & Beverage",
+        "desc": "Restaurants and cafes serving fast food and drinks"
+      },
+      "events": {
+        "title": "Events & Offers",
+        "desc": "Seasonal promotions, summer events, and birthdays"
+      },
+      "schools": {
+        "title": "Schools & Groups",
+        "desc": "Special programs and packages for groups"
+      },
+      "tickets": {
+        "title": "Tickets & Pricing",
+        "desc": "Full-day entry tickets with access to all attractions"
+      },
+      "location": {
+        "title": "Location",
+        "desc": "Dead Sea - 35 minutes from Amman"
+      }
+    }
+  },
+  "about": {
+    "title": "About La Cueva",
+    "heroTagline": "The Fun... Starts Here",
+    "heroParagraph": "From the heart of the Dead Sea, one of the world's most unique destinations, La Cueva Aqua Park was born as more than a traditional water park — it was created as a fully immersive experience.",
+    "overview": {
+      "title": "Overview",
+      "content": "La Cueva Aqua Park is a fully integrated water park located in South Shouna – Dead Sea. It spans approximately 30 dunums and features a wide range of water attractions, pools, and dedicated kids' areas."
+    },
+    "story": {
+      "title": "Our Story",
+      "content": "La Cueva Aqua Park is a leading water entertainment destination in Jordan, developed with a modern vision focused on experience quality, operational efficiency, and diverse target segments."
+    },
+    "concept": {
+      "title": "The Concept",
+      "content": "Conceptually, La Cueva is a complete world where water becomes motion, attractions turn into stories, and families experience joy together."
+    },
+    "locationStrategy": {
+      "title": "Strategic Location",
+      "content": "Located at the Dead Sea, La Cueva enjoys strategic proximity to Amman, major resorts, and tourist attractions, ensuring steady visitor flow throughout the season."
+    },
+    "capacity": {
+      "title": "Capacity & Size",
+      "items": [
+        "Total area: 30 dunums",
+        "Daily capacity: up to 2,000 visitors",
+        "Over 26 water attractions and experiences"
+      ]
+    },
+    "targets": {
+      "title": "Target Segments",
+      "items": [
+        "Families",
+        "Schools and universities",
+        "Companies and organizations",
+        "Special events and celebrations"
+      ]
+    },
+    "vision": {
+      "title": "Vision",
+      "content": "To be the leading family water park destination in Jordan."
+    },
+    "mission": {
+      "title": "Mission",
+      "content": "Deliver a safe, enjoyable, and high-quality water entertainment experience."
+    },
+    "safety": {
+      "title": "Technology & Safety",
+      "intro": "Because real fun is never complete without safety:",
+      "items": [
+        "Smart wristband access & cashless payment",
+        "125+ surveillance cameras",
+        "Automated water treatment systems",
+        "Certified lifeguards & on-site medical clinic"
+      ]
+    },
+    "services": {
+      "title": "Services & Facilities",
+      "items": [
+        "Heated pools for extended operation",
+        "Private cabanas",
+        "Restaurants & cafés",
+        "Educational aquarium experience",
+        "EV charging parking spaces"
+      ]
+    },
+    "awards": {
+      "title": "Awards & Certifications",
+      "items": [
+        "ISO 9001 – Quality Management",
+        "ISO 45001 – Occupational Health & Safety",
+        "ISO 22000 – Food Safety",
+        "Awarded \"Top Tourist Destination 2019\" by the Jordanian Ministry of Tourism"
+      ]
+    },
+    "brandPromise": {
+      "title": "Our Promise",
+      "content": "La Cueva is not just a destination — it's a feeling that stays with every visitor.\nEvery season, every visit — La Cueva promises an authentic experience unlike any other."
+    }
+  },
+  "attractions": {
+    "title": "Attractions",
+    "intro": "La Cueva offers a variety of water attractions categorized by thrill level to suit all visitors.",
+    "bullets": [
+      "Water slides with varying thrill levels",
+      "Family-friendly wave pool",
+      "Relaxing lazy river",
+      "High-thrill rides"
+    ],
+    "waterSlides": {
+      "title": "Water Slides",
+      "desc": "Multiple slides ranging from gentle family rides to extreme thrill slides for the adventurous."
+    },
+    "wavePool": {
+      "title": "Wave Pool",
+      "desc": "An ocean-like wave pool with varying wave intensities, suitable for all ages."
+    },
+    "lazyRiver": {
+      "title": "Lazy River",
+      "desc": "A peaceful river ride to relax and enjoy the surrounding views."
+    },
+    "adrenalineTower": {
+      "title": "Adrenaline Tower",
+      "desc": "The park's highest point offering a thrilling experience for adventure seekers."
+    },
+    "familyPools": {
+      "title": "Family Pools",
+      "desc": "Pools of varying depths for the whole family with comfortable seating areas."
+    },
+    "kidsAreaAttraction": {
+      "title": "Kids Area",
+      "desc": "A dedicated area with safe, colorful games for young children."
+    }
+  },
+  "kidsArea": {
+    "title": "Kids Area",
+    "intro": "A safe, child-friendly area featuring colorful water games, shallow pools, and continuous lifeguard supervision.",
+    "slides": {
+      "title": "Kids Slides",
+      "desc": "Specially designed slides with bright colors and safe heights for children."
+    },
+    "safety": {
+      "title": "Safety Information",
+      "desc": "Your children's safety is our priority. All areas are monitored by trained lifeguards and surveillance cameras."
+    },
+    "ageGuide": {
+      "title": "Age Guidelines",
+      "desc": "Age-appropriate attractions with clear guidelines to ensure children's safety."
+    }
+  },
+  "food": {
+    "title": "Food & Beverage",
+    "intro": "La Cueva offers on-site restaurants and cafés serving fast food, beverages, and ice cream.",
+    "restaurants": {
+      "title": "Restaurants",
+      "desc": "Restaurants serving a variety of fast food including pizza, burgers, and falafel."
+    },
+    "cafes": {
+      "title": "Cafes",
+      "desc": "Cafes offering hot and cold drinks with shisha in designated areas."
+    },
+    "snacks": {
+      "title": "Snacks & Drinks",
+      "desc": "Fresh juices, ice cream, and a variety of healthy beverages."
+    }
+  },
+  "events": {
+    "title": "Events & Offers",
+    "intro": "Includes seasonal promotions, summer events, and birthday celebrations.",
+    "seasonal": {
+      "title": "Seasonal Offers",
+      "desc": "Special offers and discounts during holidays, official occasions, and summer season."
+    },
+    "birthday": {
+      "title": "Birthday Parties",
+      "desc": "Dedicated areas for birthday celebrations with food, decoration, and entertainment services."
+    },
+    "private": {
+      "title": "Private Events",
+      "desc": "Book private events for companies, organizations, and social gatherings."
+    }
+  },
+  "schools": {
+    "title": "Schools & Groups",
+    "intro": "La Cueva welcomes school trips and groups with tailored programs and special packages.",
+    "trips": {
+      "title": "School Trips",
+      "desc": "Special educational and recreational programs for schools with discounted rates and full supervision."
+    },
+    "packages": {
+      "title": "Group Packages",
+      "desc": "Special packages for companies, clubs, associations, and universities."
+    },
+    "form": {
+      "title": "Booking Request"
+    }
+  },
+  "tickets": {
+    "title": "Tickets & Pricing",
+    "intro": "Full-day entry tickets granting access to all attractions, with prices varying by season.",
+    "adults": {
+      "title": "Adults",
+      "price": "15 – 25 JOD",
+      "desc": "Adult ticket prices range from 15 to 25 JOD depending on the season, including access to all attractions and facilities."
+    },
+    "kids": {
+      "title": "Children",
+      "price": "Free",
+      "desc": "Children under 2 years enter for free."
+    },
+    "seniors": {
+      "title": "Seniors",
+      "price": "Free",
+      "desc": "Seniors aged 65 and above enter for free."
+    },
+    "included": {
+      "title": "What's Included",
+      "items": [
+        "All water slides and attractions",
+        "Wave pool",
+        "Lazy river",
+        "Kids area",
+        "Family pools",
+        "Free life jackets"
+      ]
+    },
+    "notes": {
+      "title": "Important Notes",
+      "items": [
+        "Card payment only.",
+        "Outside food and drinks are not allowed.",
+        "The park is closed during winter.",
+        "Free life jackets available for all visitors.",
+        "Fish aquarium operates from 11 AM to 6 PM."
+      ]
+    },
+    "ctaBook": "Book Now"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "desc": "Explore unforgettable moments at La Cueva Aqua Park"
+  },
+  "faq": {
+    "title": "FAQ",
+    "categories": {
+      "tickets": "Tickets & Entry",
+      "activities": "Activities",
+      "food": "Food",
+      "safety": "Services & Safety",
+      "aquarium": "Fish Aquarium"
+    }
+  },
+  "locationPage": {
+    "title": "Location",
+    "address": "Located in South Shouna – Dead Sea, approximately 35 minutes from Amman.",
+    "deadSea": "Dead Sea - Jordan"
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "phone": "Phone",
+    "email": "Email",
+    "formTitle": "Send a Message",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "sendBtn": "Send",
+    "socialTitle": "Follow Us"
+  },
+  "bookingForm": {
+    "title": "Booking Request",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "visitDate": "Visit Date",
+    "numKids": "Number of Kids",
+    "kidsAges": "Kids Ages",
+    "numAdults": "Number of Adults",
+    "adultsAges": "Adults Ages",
+    "companionPhones": "Companion Phone Numbers",
+    "addPhone": "Add Phone",
+    "notes": "Notes",
+    "submit": "Submit Request",
+    "required": "Required",
+    "invalidDate": "Invalid date",
+    "invalidPhone": "Invalid phone number"
+  },
+  "footer": {
+    "tagline": "La Cueva... Capital of Fun",
+    "funStarts": "The Fun... Starts Here",
+    "deadSea": "Dead Sea – Jordan",
+    "rights": "All rights reserved"
+  },
+  "loader": {
+    "text": "The Fun... Starts Here"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "backToHome": "Back to Home"
+  }
+}

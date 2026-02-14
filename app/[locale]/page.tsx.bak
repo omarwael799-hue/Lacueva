@@ -1,0 +1,229 @@
+"use client"
+
+import Link from "next/link"
+import { useI18n } from "@/lib/i18n.client"
+import { WaveDivider } from "@/components/wave-divider"
+import { FadeUp, StaggerContainer, StaggerItem, FloatCard } from "@/components/motion"
+import { motion } from "framer-motion"
+import {
+  Waves,
+  Baby,
+  UtensilsCrossed,
+  PartyPopper,
+  GraduationCap,
+  Ticket,
+  MapPin,
+  ArrowRight,
+  ArrowLeft,
+} from "lucide-react"
+
+const HERO_IMAGE =
+  "https://scontent.fcai19-8.fna.fbcdn.net/v/t39.30808-6/627029956_1200445888926322_3879120956538668317_n.jpg"
+
+const sectionIcons = {
+  attractions: Waves,
+  kidsArea: Baby,
+  food: UtensilsCrossed,
+  events: PartyPopper,
+  schools: GraduationCap,
+  tickets: Ticket,
+  location: MapPin,
+} as const
+
+const sectionColors = {
+  attractions: "from-aqua to-ocean",
+  kidsArea: "from-sun to-orange-400",
+  food: "from-rose-400 to-red-500",
+  events: "from-violet-400 to-purple-600",
+  schools: "from-emerald-400 to-teal-600",
+  tickets: "from-aqua to-ocean",
+  location: "from-ocean to-blue-800",
+}
+
+const sectionLinks = {
+  attractions: "attractions",
+  kidsArea: "kids-area",
+  food: "food",
+  events: "events",
+  schools: "schools",
+  tickets: "tickets",
+  location: "location",
+}
+
+export default function HomePage() {
+  const { locale, content } = useI18n()
+  const t = content.home
+  const ArrowIcon = locale === "ar" ? ArrowLeft : ArrowRight
+  const p = `/${locale}`
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-ocean/80 via-ocean/60 to-ocean/90" />
+        </div>
+
+        {/* Animated wave overlay at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden h-24">
+          <motion.div
+            className="absolute bottom-0 left-0 w-[200%] h-24"
+            animate={{ x: [0, "-50%"] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          >
+            <svg viewBox="0 0 2880 120" fill="none" className="w-full h-full">
+              <path
+                d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 C1680,120 1920,0 2160,60 C2400,120 2640,0 2880,60 L2880,120 L0,120 Z"
+                fill="rgba(255,255,255,0.15)"
+              />
+            </svg>
+          </motion.div>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center py-32">
+          <FadeUp>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+              className="mb-6"
+            >
+              <img
+                src="http://lacuevajo.com/AR/Arassets/images/logo.png"
+                alt="La Cueva"
+                className="h-20 lg:h-28 w-auto mx-auto object-contain"
+              />
+            </motion.div>
+          </FadeUp>
+
+          <FadeUp delay={0.2}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white text-balance leading-tight">
+              {t.heroTitle}
+            </h1>
+          </FadeUp>
+
+          <FadeUp delay={0.3}>
+            <p className="text-xl md:text-2xl text-sun font-heading font-bold mt-3">
+              {t.heroSubtitle}
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.4}>
+            <p className="mt-6 text-lg text-white/80 max-w-2xl mx-auto text-pretty leading-relaxed">
+              {t.heroDescription}
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.5}>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link
+                href={`${p}/tickets`}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-sun text-ocean font-heading font-bold rounded-full hover:shadow-lg hover:shadow-sun/30 transition-all hover:scale-105"
+              >
+                {t.ctaTickets}
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+              <Link
+                href={`${p}/schools`}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 text-white font-heading font-bold rounded-full border border-white/30 hover:bg-white/25 transition-all"
+              >
+                {t.ctaSchools}
+              </Link>
+              <Link
+                href={`${p}/contact`}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-aqua/20 text-white font-heading font-bold rounded-full border border-aqua/40 hover:bg-aqua/30 transition-all"
+              >
+                {t.ctaContact}
+              </Link>
+            </div>
+          </FadeUp>
+        </div>
+
+        <WaveDivider color="hsl(0 0% 100%)" className="absolute bottom-0 left-0 right-0 z-20" />
+      </section>
+
+      {/* Sections grid */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="mx-auto max-w-7xl px-4">
+          <FadeUp>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-ocean text-center mb-4 text-balance">
+              {locale === "ar" ? "استكشف الكويفا" : "Explore La Cueva"}
+            </h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12 text-pretty">
+              {locale === "ar"
+                ? "اكتشف كل ما تقدمه مدينة الكويفا المائية"
+                : "Discover everything La Cueva Aqua Park has to offer"}
+            </p>
+          </FadeUp>
+
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {(Object.keys(t.sections) as Array<keyof typeof t.sections>).map((key) => {
+              const section = t.sections[key]
+              const Icon = sectionIcons[key]
+              const gradient = sectionColors[key]
+              const link = sectionLinks[key]
+              return (
+                <StaggerItem key={key}>
+                  <FloatCard>
+                    <Link
+                      href={`${p}/${link}`}
+                      className="block group rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-aqua/30 transition-all"
+                    >
+                      <div className={`h-32 bg-gradient-to-br ${gradient} flex items-center justify-center relative overflow-hidden`}>
+                        <div className="absolute inset-0 bg-white/5" />
+                        <Icon className="w-12 h-12 text-white relative z-10" />
+                      </div>
+                      <div className="p-5">
+                        <h3 className="font-heading font-bold text-foreground group-hover:text-aqua transition-colors">
+                          {section.title}
+                        </h3>
+                        <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+                          {section.desc}
+                        </p>
+                        <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-aqua group-hover:text-ocean transition-colors">
+                          {content.common.learnMore}
+                          <ArrowIcon className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </Link>
+                  </FloatCard>
+                </StaggerItem>
+              )
+            })}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative overflow-hidden">
+        <WaveDivider color="#3ecaf6" flip />
+        <div className="bg-gradient-to-br from-aqua to-ocean py-16 lg:py-20 text-center">
+          <div className="mx-auto max-w-3xl px-4">
+            <FadeUp>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-balance">
+                {locale === "ar" ? "جاهز للمغامرة؟" : "Ready for the Adventure?"}
+              </h2>
+              <p className="mt-4 text-white/80 text-lg">
+                {locale === "ar"
+                  ? "احجز تذكرتك الآن واستمتع بأكبر مدينة ألعاب مائية في الأردن"
+                  : "Book your ticket now and enjoy the largest water park in Jordan"}
+              </p>
+              <Link
+                href={`${p}/tickets`}
+                className="mt-8 inline-flex items-center gap-2 px-10 py-4 bg-sun text-ocean font-heading font-bold rounded-full hover:shadow-xl hover:shadow-sun/30 transition-all hover:scale-105"
+              >
+                {t.ctaTickets}
+                <ArrowIcon className="w-5 h-5" />
+              </Link>
+            </FadeUp>
+          </div>
+        </div>
+        <WaveDivider color="hsl(0 0% 100%)" />
+      </section>
+    </>
+  )
+}
