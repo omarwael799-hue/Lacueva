@@ -93,7 +93,7 @@ export default function HomePage() {
               className="mb-6"
             >
               <img
-                src="http://https://filebin.net/zy3egmesuud202vv/logo.png"
+                src="https://filebin.net/zy3egmesuud202vv/logo.png"
                 alt="La Cueva"
                 className="h-20 lg:h-28 w-auto mx-auto object-contain"
               />

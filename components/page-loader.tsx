@@ -54,7 +54,7 @@ export function PageLoader() {
               transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
             >
               <img
-                src="http://https://filebin.net/zy3egmesuud202vv/logo.png"
+                src="https://filebin.net/zy3egmesuud202vv/logo.png"
                 alt="La Cueva Aqua Park"
                 className="w-24 h-24 object-contain relative z-10"
               />
