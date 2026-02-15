@@ -8,16 +8,6 @@ import { X, ChevronLeft, ChevronRight, Images, Home, Film } from "lucide-react"
 import { galleryPlace, galleryCabins, galleryVideos } from "./gallery.data"
 
 type Tab = "all" | "place" | "cabins" | "videos"
-function getVideoPoster(videoSrc: string) {
-  // /videos/park/xxx.mp4 -> /videos/posters/park/xxx.jpg
-  // /videos/cabins/xxx.mov -> /videos/posters/cabins/xxx.jpg
-  const m = videoSrc.match(/^\/videos\/(park|cabins)\/(.+)\.(mp4|mov|m4v|webm)$/i)
-  if (!m) return ""
-  const folder = m[1]
-  const name = m[2]
-  return `/videos/posters/${folder}/${name}.jpg`
-}
-
 type Item =
   | { type: "image"; src: string; group: "place" | "cabins" }
   | { type: "video"; src: string; group: "videos" }
@@ -49,14 +39,7 @@ function VideoThumb({ src }: { src: string }) {
     v.addEventListener("loadeddata", onLoaded)
     v.addEventListener("seeked", onSeeked)
 
-    const getVideoPoster = (src: string) => {
-  const file = src.split("/").pop() || ""
-  const base = file.replace(/\.[^.]+$/, "") // remove ANY extension (mp4/MOV/MP4/etc)
-  const folder = src.includes("/videos/cabins/") ? "cabins" : "park"
-  return `/videos/posters/${folder}/${base}.jpg`
-}
-
-return () => {
+    return () => {
       cancelled = true
       v.removeEventListener("loadeddata", onLoaded)
       v.removeEventListener("seeked", onSeeked)

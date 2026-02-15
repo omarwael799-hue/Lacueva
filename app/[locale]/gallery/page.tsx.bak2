@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useMemo, useState } from "react"
 import { useI18n } from "@/lib/i18n.client"
 import { PageHero } from "@/components/page-hero"
 import { motion, AnimatePresence } from "framer-motion"
@@ -8,80 +8,9 @@ import { X, ChevronLeft, ChevronRight, Images, Home, Film } from "lucide-react"
 import { galleryPlace, galleryCabins, galleryVideos } from "./gallery.data"
 
 type Tab = "all" | "place" | "cabins" | "videos"
-function getVideoPoster(videoSrc: string) {
-  // /videos/park/xxx.mp4 -> /videos/posters/park/xxx.jpg
-  // /videos/cabins/xxx.mov -> /videos/posters/cabins/xxx.jpg
-  const m = videoSrc.match(/^\/videos\/(park|cabins)\/(.+)\.(mp4|mov|m4v|webm)$/i)
-  if (!m) return ""
-  const folder = m[1]
-  const name = m[2]
-  return `/videos/posters/${folder}/${name}.jpg`
-}
-
 type Item =
   | { type: "image"; src: string; group: "place" | "cabins" }
   | { type: "video"; src: string; group: "videos" }
-
-function VideoThumb({ src }: { src: string }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
-
-    let cancelled = false
-
-    const onLoaded = async () => {
-      try {
-        // move slightly off 0 to reliably draw first frame on some browsers
-        v.currentTime = 0.12
-      } catch {}
-    }
-
-    const onSeeked = () => {
-      if (cancelled) return
-      // freeze on the frame
-      v.pause()
-      setReady(true)
-    }
-
-    v.addEventListener("loadeddata", onLoaded)
-    v.addEventListener("seeked", onSeeked)
-
-    const getVideoPoster = (src: string) => {
-  const file = src.split("/").pop() || ""
-  const base = file.replace(/\.[^.]+$/, "") // remove ANY extension (mp4/MOV/MP4/etc)
-  const folder = src.includes("/videos/cabins/") ? "cabins" : "park"
-  return `/videos/posters/${folder}/${base}.jpg`
-}
-
-return () => {
-      cancelled = true
-      v.removeEventListener("loadeddata", onLoaded)
-      v.removeEventListener("seeked", onSeeked)
-    }
-  }, [])
-
-  return (
-    <div className="relative">
-      <video
-        ref={videoRef}
-        src={src}
-        muted
-        playsInline
-        preload="metadata"
-        className={[
-          "w-full h-auto block",
-          // reduce shimmer/flicker while metadata arrives
-          ready ? "opacity-100" : "opacity-80",
-        ].join(" ")}
-      />
-      {/* subtle overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
-    </div>
-  )
-}
 
 export default function GalleryPage() {
   const { content } = useI18n()
@@ -96,14 +25,6 @@ export default function GalleryPage() {
     const cabins = galleryCabins.map((src) => ({ type: "image", src, group: "cabins" as const }))
     const videos = galleryVideos.map((src) => ({ type: "video", src, group: "videos" as const }))
     return [...place, ...cabins, ...videos]
-  }, [])
-
-  const counts = useMemo(() => {
-    const place = galleryPlace.length
-    const cabins = galleryCabins.length
-    const videos = galleryVideos.length
-    const all = place + cabins + videos
-    return { all, place, cabins, videos }
   }, [])
 
   const items = useMemo<Item[]>(() => {
@@ -126,11 +47,15 @@ export default function GalleryPage() {
     setLightboxIndex((lightboxIndex - 1 + items.length) % items.length)
   }
 
-  const tabs: Array<{ key: Tab; label: string; icon: any; count: number }> = [
-    { key: "all", label: isAr ? "الكل" : "All", icon: Images, count: counts.all },
-    { key: "place", label: isAr ? "صور المكان" : "Place", icon: Home, count: counts.place },
-    { key: "cabins", label: isAr ? "صور الأكواخ" : "Cabins", icon: Home, count: counts.cabins },
-    { key: "videos", label: isAr ? "فيديوز" : "Videos", icon: Film, count: counts.videos },
+  const tabs: Array<{
+    key: Tab
+    label: string
+    icon: any
+  }> = [
+    { key: "all", label: isAr ? "الكل" : "All", icon: Images },
+    { key: "place", label: isAr ? "صور المكان" : "Place", icon: Home },
+    { key: "cabins", label: isAr ? "صور الأكواخ" : "Cabins", icon: Home },
+    { key: "videos", label: isAr ? "فيديوز" : "Videos", icon: Film },
   ]
 
   return (
@@ -160,47 +85,49 @@ export default function GalleryPage() {
                 >
                   <Icon className="w-4 h-4" />
                   {x.label}
-                  <span className={active ? "opacity-90" : "opacity-60"}>({x.count})</span>
+                  <span className={active ? "opacity-90" : "opacity-60"}>({x.key === "all" ? allItems.length : items.length})</span>
                 </button>
               )
             })}
           </div>
 
-          {/* Masonry (natural sizes) — faster + less flicker */}
+          {/* Masonry (natural sizes) */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
             {items.map((item, index) => (
-              <button
+              <motion.button
                 key={item.src}
+                whileHover={{ scale: 1.01 }}
                 onClick={() => openLightbox(index)}
-                className={[
-                  "group mb-4 w-full text-left break-inside-avoid rounded-2xl overflow-hidden",
-                  "bg-card border border-border/50 hover:border-aqua/40 hover:shadow-2xl hover:shadow-aqua/10",
-                  "transition-all will-change-transform hover:-translate-y-[2px]",
-                ].join(" ")}
-                style={{ contain: "content" as any }}
+                className="group mb-4 w-full text-left break-inside-avoid rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-aqua/40 hover:shadow-2xl hover:shadow-aqua/10 transition-all"
               >
                 {item.type === "image" ? (
                   <img
                     src={item.src}
                     alt={item.group}
                     loading="lazy"
-                    decoding="async"
                     className="w-full h-auto block"
                   />
                 ) : (
                   <div className="relative">
-                    <VideoThumb src={item.src} />
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                    <video
+                      src={item.src}
+                      className="w-full h-auto block"
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                       <span className="text-xs px-2 py-1 rounded-full bg-black/50 text-white">
                         {isAr ? "فيديو" : "Video"}
                       </span>
                       <span className="text-xs px-2 py-1 rounded-full bg-black/50 text-white">
-                        {item.src.includes("/videos/cabins/") ? "Cabins" : "Park"}
+                        {item.src.includes("/videos/cabins/") ? (isAr ? "Cabins" : "Cabins") : (isAr ? "Park" : "Park")}
                       </span>
                     </div>
                   </div>
                 )}
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -212,8 +139,12 @@ export default function GalleryPage() {
               { value: "2000+", labelEn: "Daily Visitors", labelAr: "زائر يومياً" },
             ].map((stat) => (
               <div key={stat.value}>
-                <p className="text-2xl lg:text-3xl font-heading font-bold text-aqua">{stat.value}</p>
-                <p className="text-sm text-muted-foreground mt-1">{isAr ? stat.labelAr : stat.labelEn}</p>
+                <p className="text-2xl lg:text-3xl font-heading font-bold text-aqua">
+                  {stat.value}
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {isAr ? stat.labelAr : stat.labelEn}
+                </p>
               </div>
             ))}
           </div>
@@ -270,7 +201,11 @@ export default function GalleryPage() {
               onClick={(e) => e.stopPropagation()}
             >
               {items[lightboxIndex].type === "image" ? (
-                <img src={items[lightboxIndex].src} alt="" className="w-full h-full object-contain bg-black" />
+                <img
+                  src={items[lightboxIndex].src}
+                  alt=""
+                  className="w-full h-full object-contain bg-black"
+                />
               ) : (
                 <video
                   src={items[lightboxIndex].src}

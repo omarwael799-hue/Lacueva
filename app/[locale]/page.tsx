@@ -22,8 +22,7 @@ import {
   HeartHandshake,
 } from "lucide-react"
 
-const HERO_IMAGE =
-  "https://filebin.net/stb83io1ptvvj3iz/1fc36edb-9547-4fdf-9d7e-0e428a4dbca6_lg.jpg"
+const HERO_IMAGE = "/hero.png"
 
 const sectionIcons = {
   attractions: Waves,
@@ -54,7 +53,6 @@ const sectionLinks = {
   tickets: "tickets",
   location: "location",
 }
-
 function SectionShell({
   id,
   title,
@@ -64,7 +62,7 @@ function SectionShell({
   tone = "light",
 }: {
   id: string
-  title: string
+  title?: string
   subtitle?: string
   icon?: any
   children: React.ReactNode
@@ -78,37 +76,41 @@ function SectionShell({
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 py-14 lg:py-20">
-        <div className="flex items-start gap-4 mb-8">
-          <div
-            className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${
-              tone === "blue" ? "bg-white/10" : "bg-aqua/10"
-            }`}
-          >
-            {Icon ? (
-              <Icon className={`${tone === "blue" ? "text-sun" : "text-ocean"} w-6 h-6`} />
-            ) : (
-              <Sparkles className={`${tone === "blue" ? "text-sun" : "text-ocean"} w-6 h-6`} />
-            )}
-          </div>
-          <div>
-            <h2
-              className={`text-2xl md:text-3xl font-heading font-bold ${
-                tone === "blue" ? "text-white" : "text-ocean"
+        {title ? (
+          <div className="flex items-start gap-4 mb-8">
+            <div
+              className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${
+                tone === "blue" ? "bg-white/10" : "bg-aqua/10"
               }`}
             >
-              {title}
-            </h2>
-            {subtitle ? (
-              <p
-                className={`mt-1 text-sm md:text-base ${
-                  tone === "blue" ? "text-white/75" : "text-muted-foreground"
+              {Icon ? (
+                <Icon className={`${tone === "blue" ? "text-sun" : "text-ocean"} w-6 h-6`} />
+              ) : (
+                <Sparkles className={`${tone === "blue" ? "text-sun" : "text-ocean"} w-6 h-6`} />
+              )}
+            </div>
+
+            <div>
+              <h2
+                className={`text-2xl md:text-3xl font-heading font-bold ${
+                  tone === "blue" ? "text-white" : "text-ocean"
                 }`}
               >
-                {subtitle}
-              </p>
-            ) : null}
+                {title}
+              </h2>
+
+              {subtitle ? (
+                <p
+                  className={`mt-1 text-sm md:text-base ${
+                    tone === "blue" ? "text-white/75" : "text-muted-foreground"
+                  }`}
+                >
+                  {subtitle}
+                </p>
+              ) : null}
+            </div>
           </div>
-        </div>
+        ) : null}
 
         {children}
       </div>
@@ -122,7 +124,6 @@ function SectionShell({
     </section>
   )
 }
-
 export default function HomePage() {
   const { locale, content } = useI18n()
   const t = content.home
@@ -133,96 +134,120 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden isolate">
         {/* Background */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-70"
+className="absolute inset-0 bg-cover bg-center opacity-90"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#041a2e]/85 via-ocean/65 to-[#03121f]/90" />
+<div className="absolute inset-0 bg-gradient-to-b from-[#041a2e]/45 via-ocean/25 to-[#03121f]/55" />
         </div>
 
-        {/* Animated wave overlay at bottom */}
-<div className="hidden md:block absolute bottom-0 left-0 right-0 overflow-hidden h-24">
-<motion.div
-  className="
-    absolute bottom-0 left-0 h-24
-    w-full md:w-[200%]
-  "
-  animate={{
-    x: typeof window !== "undefined" && window.innerWidth >= 768 ? [0, "-50%"] : 0,
-  }}
-  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
->
-            <svg viewBox="0 0 2880 120" fill="none" className="w-full h-full">
-              <path
-                d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 C1680,120 1920,0 2160,60 C2400,120 2640,0 2880,60 L2880,120 L0,120 Z"
-                fill="rgba(255,255,255,0.15)"
-              />
-            </svg>
-          </motion.div>
-        </div>
+{/* Hero Waves (infinite + solid) */}
+<div className="pointer-events-none absolute bottom-0 left-0 right-0 overflow-hidden h-36">
+  <motion.div
+    className="absolute bottom-0 left-0 h-36 w-[200%]"
+    animate={{ x: [0, "-50%"] }}
+    transition={{ duration: 6.5, repeat: Infinity, ease: "linear" }}
+  >
+    <svg viewBox="0 0 2880 180" className="h-full w-full" preserveAspectRatio="none" fill="none">
+      {/* TOP wave — Navy */}
+      <path
+        d="M0,92 C240,142 480,42 720,92 C960,142 1200,42 1440,92 C1680,142 1920,42 2160,92 C2400,142 2640,42 2880,92 L2880,180 L0,180 Z"
+        fill="#2969a5"
+      />
+      {/* BOTTOM wave — White (solid) */}
+      <path
+        d="M0,104 C240,144 480,64 720,104 C960,144 1200,64 1440,104 C1680,144 1920,64 2160,104 C2400,144 2640,64 2880,104 L2880,180 L0,180 Z"
+        fill="#ffffff"
+        opacity="1"
+      />
+    </svg>
+  </motion.div>
+</div>
+{/* HERO BOOSTED GLOW */}
+<div className="pointer-events-none absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 z-[15]
+  w-[680px] h-[520px] md:w-[820px] md:h-[600px]">
+  <div className="absolute inset-0 rounded-full bg-sun/20 blur-[110px]" />
+  <div className="absolute inset-24 rounded-full bg-aqua/18 blur-[120px]" />
+  <div className="absolute inset-44 rounded-full bg-white/12 blur-[90px]" />
+</div>
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center py-32">
-          <FadeUp>
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-              className="mb-6"
-            >
-              <img
-                src="https://filebin.net/zy3egmesuud202vv/logo.png"
-                alt="La Cueva"
-                className="h-20 lg:h-28 w-auto mx-auto object-contain"
-              />
-            </motion.div>
-          </FadeUp>
+<div className="relative z-[30] mx-auto max-w-5xl px-4 text-center py-32">
+  {/* Soft glow behind hero content (calm) */}
+  <div className="pointer-events-none absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 w-[720px] h-[520px] md:w-[860px] md:h-[600px]">
+    {/* warm sun halo (very subtle) */}
+    <div className="absolute inset-0 rounded-full bg-sun/18 blur-3xl" />
+    {/* aqua halo (even softer) */}
+    <div className="absolute inset-10 rounded-full bg-aqua/14 blur-3xl" />
+    {/* white lift (tiny) */}
+    <div className="absolute inset-24 rounded-full bg-white/10 blur-2xl" />
+  </div>
 
-          <FadeUp delay={0.2}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white text-balance leading-tight">
-              {t.heroTitle}
-            </h1>
-          </FadeUp>
+  {/* content stays above glow */}
+  <div className="relative">
+    <FadeUp>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+        className="mb-6"
+      >
+        <img
+          src="https://filebin.net/zy3egmesuud202vv/logo.png"
+          alt="La Cueva"
+          className="h-20 lg:h-28 w-auto mx-auto object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
+        />
+      </motion.div>
+    </FadeUp>
 
-          <FadeUp delay={0.3}>
-            <p className="text-xl md:text-2xl text-sun font-heading font-bold mt-10">{t.heroSubtitle}</p>
-          </FadeUp>
+    <FadeUp delay={0.2}>
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white text-balance leading-tight drop-shadow-[0_18px_50px_rgba(0,0,0,0.45)]">
+        {t.heroTitle}
+      </h1>
+    </FadeUp>
 
-          <FadeUp delay={0.4}>
-            <p className="mt-6 text-lg text-white/80 max-w-2xl mx-auto text-pretty leading-relaxed">
-              {t.heroDescription}
-            </p>
-          </FadeUp>
+    <FadeUp delay={0.3}>
+      <p className="text-xl md:text-2xl text-sun font-heading font-bold mt-10 drop-shadow-[0_14px_36px_rgba(0,0,0,0.35)]">
+        {t.heroSubtitle}
+      </p>
+    </FadeUp>
 
-          <FadeUp delay={0.5}>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link
-                href={`${p}/tickets`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-sun text-ocean font-heading font-bold rounded-full hover:shadow-lg hover:shadow-sun/30 transition-all hover:scale-105"
-              >
-                {t.ctaTickets}
-                <ArrowIcon className="w-5 h-5" />
-              </Link>
+    <FadeUp delay={0.4}>
+      <p className="mt-6 text-lg text-white/85 max-w-2xl mx-auto text-pretty leading-relaxed drop-shadow-[0_14px_38px_rgba(0,0,0,0.35)]">
+        {t.heroDescription}
+      </p>
+    </FadeUp>
 
-              <Link
-                href={`${p}/schools`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 text-white font-heading font-bold rounded-full border border-white/30 hover:bg-white/25 transition-all"
-              >
-                {t.ctaSchools}
-              </Link>
+    <FadeUp delay={0.5}>
+      <div className="mt-8 flex flex-wrap justify-center gap-4 drop-shadow-[0_14px_38px_rgba(0,0,0,0.30)]">
+        <Link
+          href={`${p}/tickets`}
+          className="inline-flex items-center gap-2 px-8 py-4 bg-sun text-ocean font-heading font-bold rounded-full hover:shadow-lg hover:shadow-sun/30 transition-all hover:scale-105"
+        >
+          {isAr ? "احجز الآن" : "Book Now"}
+          <ArrowIcon className="w-5 h-5" />
+        </Link>
 
-              <button
-                onClick={() => {
-                  document.getElementById("site-footer")?.scrollIntoView({ behavior: "smooth" })
-                }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-aqua/20 text-white font-heading font-bold rounded-full border border-aqua/40 hover:bg-aqua/30 transition-all"
-              >
-                {t.ctaContact}
-              </button>
-            </div>
-          </FadeUp>
-        </div>
+        <Link
+          href={`${p}/schools`}
+          className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 text-white font-heading font-bold rounded-full border border-white/30 hover:bg-white/25 transition-all"
+        >
+          {t.ctaSchools}
+        </Link>
+
+        <button
+          onClick={() => {
+            document.getElementById("site-footer")?.scrollIntoView({ behavior: "smooth" })
+          }}
+          className="inline-flex items-center gap-2 px-8 py-4 bg-aqua/20 text-white font-heading font-bold rounded-full border border-aqua/40 hover:bg-aqua/30 transition-all"
+        >
+          {t.ctaContact}
+        </button>
+      </div>
+    </FadeUp>
+  </div>
+</div>
       </section>
 
       {/* Sections grid (KEEP AS IS) */}
@@ -253,7 +278,7 @@ export default function HomePage() {
                       <div
                         className={`h-32 bg-gradient-to-br ${gradient} flex items-center justify-center relative overflow-hidden`}
                       >
-                        <div className="absolute inset-0 bg-white/5 transition-opacity group-hover:opacity-70" />
+                        <div className="absolute inset-0 bg-white/5 transition-opacity group-hover:opacity-85" />
                         <Icon className="w-12 h-12 text-white relative z-10 transition-transform group-hover:scale-110" />
                       </div>
                       <div className="p-5">
@@ -314,18 +339,13 @@ export default function HomePage() {
       </SectionShell>
 
 {/* About La Cueva */}
-<SectionShell id="about-lacueva" icon={Building2}>
-  
-  {/* SECTION TITLE – FIXED & CLEAR */}
-  <div className={`mb-12 ${isAr ? "text-right" : "text-left"}`}>
-    <h2 className="text-3xl md:text-4xl font-heading font-bold text-ocean">
-      {isAr ? "من نحن" : "About La Cueva"}
-    </h2>
-  </div>
-
-  {/* CONTENT */}
+<SectionShell
+  id="about-lacueva"
+  title={isAr ? "من نحن" : "About La Cueva"}
+  icon={Building2}
+>
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-    
+
     {/* LOGO */}
     <div
       className={`
@@ -336,12 +356,12 @@ export default function HomePage() {
       <img
         src="https://lh3.googleusercontent.com/proxy/evEbaCpDt7XaUmRHY8FZXfh52LpE0ndJNb2Vxj6WUBDin42pDMJetc1-YAAH8mFc2Ivb1y_IjgI8eU2pQzr9-Agwbh-J"
         alt="Al-Nabali & Al-Fares Holding"
-className="w-[220px] md:w-[300px] lg:w-[420px] opacity-90 drop-shadow-[0_30px_70px_rgba(0,0,0,0.2)]"
+        className="w-[220px] md:w-[300px] lg:w-[420px] opacity-90 drop-shadow-[0_30px_70px_rgba(0,0,0,0.2)]"
       />
     </div>
 
     {/* TEXT */}
-    <div className={`${isAr ? "text-right" : "text-left"}`}>
+    <div className={isAr ? "text-right" : "text-left"}>
       {isAr ? (
         <div className="space-y-5 text-foreground/90 leading-relaxed text-lg">
           <p>
@@ -755,7 +775,7 @@ className="w-[220px] md:w-[300px] lg:w-[420px] opacity-90 drop-shadow-[0_30px_70
               href={`${p}/tickets`}
               className="inline-flex items-center gap-2 px-10 py-4 bg-sun text-ocean font-heading font-bold rounded-full hover:shadow-xl hover:shadow-sun/30 transition-all hover:scale-105"
             >
-              {t.ctaTickets}
+              {isAr ? "احجز الآن" : "Book Now"}
               <ArrowIcon className="w-5 h-5" />
             </Link>
           </div>
