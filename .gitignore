@@ -8,3 +8,8 @@ node_modules/
 .next/
 .env*.local
 .DS_Store
+# Big media
+public/videos/
+public/images/gallery/place/*.JPG
+public/images/gallery/place/*.PNG
+public/images/gallery/cabins/*.HEIC
