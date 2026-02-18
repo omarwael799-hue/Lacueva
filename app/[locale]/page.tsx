@@ -1,5 +1,6 @@
 "use client"
 
+import type { ReactNode } from "react"
 import Link from "next/link"
 import { useI18n } from "@/lib/i18n.client"
 import { FadeUp, StaggerContainer, StaggerItem, FloatCard } from "@/components/motion"
@@ -42,8 +43,7 @@ const sectionColors = {
   schools: "from-emerald-400 to-teal-600",
   tickets: "from-aqua to-ocean",
   location: "from-ocean to-blue-800",
-}
-
+} as const
 const sectionLinks = {
   attractions: "attractions",
   kidsArea: "kids-area",
@@ -52,7 +52,7 @@ const sectionLinks = {
   schools: "schools",
   tickets: "tickets",
   location: "location",
-}
+} as const
 function SectionShell({
   id,
   title,
@@ -65,8 +65,8 @@ function SectionShell({
   id: string
   title?: string
   subtitle?: string
-  icon?: any
-  children: React.ReactNode
+  icon?: React.ElementType
+  children: ReactNode
   tone?: "light" | "blue"
   softBg?: string
 }) {
@@ -276,11 +276,11 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {(Object.keys(t.sections) as Array<keyof typeof t.sections>).map((key) => {
               const section = t.sections[key]
-              const Icon = sectionIcons[key]
-              const gradient = sectionColors[key]
-              const link = sectionLinks[key]
+              const Icon = sectionIcons[key as keyof typeof sectionIcons]
+              const gradient = sectionColors[key as keyof typeof sectionColors]
+              const link = sectionLinks[key as keyof typeof sectionLinks]
               return (
-                <StaggerItem key={key}>
+                <StaggerItem key={String(key)}>
                   <FloatCard>
                     <Link
                       href={`${p}/${link}`}

@@ -92,9 +92,9 @@ export default function GalleryPage() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const allItems = useMemo<Item[]>(() => {
-    const place = galleryPlace.map((src) => ({ type: "image", src, group: "place" as const }))
-    const cabins = galleryCabins.map((src) => ({ type: "image", src, group: "cabins" as const }))
-    const videos = galleryVideos.map((src) => ({ type: "video", src, group: "videos" as const }))
+    const place = galleryPlace.map((src) => (({ type: "image", src, group: "place" } as const)))
+    const cabins = galleryCabins.map((src) => (({ type: "image", src, group: "cabins" } as const)))
+    const videos = galleryVideos.map((src) => (({ type: "video", src, group: "videos" } as const)))
     return [...place, ...cabins, ...videos]
   }, [])
 

@@ -84,7 +84,7 @@ export default function TicketsPage() {
             <h2 className="text-2xl font-heading font-bold text-ocean mb-6">{t.included.title}</h2>
           </FadeUp>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {t.included.items.map((item, i) => (
+            {t.included.items.map((item: string, i: number) => (
               <StaggerItem key={i}>
                 <div className="flex items-center gap-3 bg-card rounded-xl p-4 border border-border/50">
                   <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
@@ -106,7 +106,7 @@ export default function TicketsPage() {
             </h2>
           </FadeUp>
           <StaggerContainer className="space-y-3">
-            {t.notes.items.map((item, i) => (
+            {t.notes.items.map((item: string, i: number) => (
               <StaggerItem key={i}>
                 <div className="flex items-start gap-3 bg-sun/5 rounded-xl p-4 border border-sun/10">
                   <AlertTriangle className="w-5 h-5 text-sun mt-0.5 flex-shrink-0" />

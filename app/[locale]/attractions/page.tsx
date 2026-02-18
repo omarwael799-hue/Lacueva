@@ -29,7 +29,7 @@ export default function AttractionsPage() {
         <div className="mx-auto max-w-4xl px-4">
           <FadeUp>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {t.bullets.map((bullet, i) => (
+              {t.bullets.map((bullet: string, i: number) => (
                 <li key={i} className="flex items-center gap-3 bg-aqua/5 rounded-xl p-4 border border-aqua/10">
                   <Waves className="w-5 h-5 text-aqua flex-shrink-0" />
                   <span className="text-foreground">{bullet}</span>

@@ -104,7 +104,7 @@ export default function AboutPage() {
             <div className="bg-aqua/5 rounded-2xl p-8 border border-aqua/10">
               <h3 className="text-xl font-heading font-bold text-ocean mb-4">{t.capacity.title}</h3>
               <ul className="space-y-3">
-                {t.capacity.items.map((item, i) => (
+                {t.capacity.items.map((item: string, i: number) => (
                   <li key={i} className="flex items-start gap-3 text-muted-foreground">
                     <span className="w-2 h-2 rounded-full bg-aqua mt-2 flex-shrink-0" />
                     {item}
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-heading font-bold text-ocean">{t.targets.title}</h3>
               </div>
               <ul className="space-y-3">
-                {t.targets.items.map((item, i) => (
+                {t.targets.items.map((item: string, i: number) => (
                   <li key={i} className="flex items-start gap-3 text-muted-foreground">
                     <span className="w-2 h-2 rounded-full bg-sun mt-2 flex-shrink-0" />
                     {item}
@@ -143,7 +143,7 @@ export default function AboutPage() {
             <p className="text-muted-foreground mb-6 text-lg">{t.safety.intro}</p>
           </FadeUp>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {t.safety.items.map((item, i) => (
+            {t.safety.items.map((item: string, i: number) => (
               <StaggerItem key={i}>
                 <div className="bg-card rounded-xl p-5 border border-border/50 flex items-center gap-4">
                   <span className="w-8 h-8 rounded-full bg-aqua/10 flex items-center justify-center text-sm font-bold text-aqua flex-shrink-0">
@@ -164,7 +164,7 @@ export default function AboutPage() {
             <h2 className="text-2xl font-heading font-bold text-ocean mb-6">{t.services.title}</h2>
           </FadeUp>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {t.services.items.map((item, i) => (
+            {t.services.items.map((item: string, i: number) => (
               <StaggerItem key={i}>
                 <div className="bg-aqua/5 rounded-xl p-5 border border-aqua/10 text-foreground">{item}</div>
               </StaggerItem>
@@ -183,7 +183,7 @@ export default function AboutPage() {
             </div>
           </FadeUp>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {t.awards.items.map((item, i) => (
+            {t.awards.items.map((item: string, i: number) => (
               <StaggerItem key={i}>
                 <div className="bg-card rounded-xl p-5 border border-sun/20 flex items-center gap-3">
                   <Award className="w-5 h-5 text-sun flex-shrink-0" />

@@ -26,7 +26,7 @@ export default function SafetyPage() {
             </FadeUp>
 
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {t.safety.items.map((item, i) => (
+              {t.safety.items.map((item: string, i: number) => (
                 <StaggerItem key={i}>
                   <div className="bg-aqua/5 rounded-xl p-6 border border-aqua/10 flex items-center gap-4">
                     <span className="w-10 h-10 rounded-full bg-aqua/20 flex items-center justify-center text-sm font-bold text-ocean flex-shrink-0">
@@ -49,7 +49,7 @@ export default function SafetyPage() {
             </FadeUp>
 
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {t.awards.items.map((item, i) => (
+              {t.awards.items.map((item: string, i: number) => (
                 <StaggerItem key={i}>
                   <div className="bg-sun/5 rounded-xl p-6 border border-sun/10 flex items-center gap-3">
                     <Award className="w-5 h-5 text-sun flex-shrink-0" />
