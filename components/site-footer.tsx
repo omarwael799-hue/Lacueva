@@ -64,7 +64,7 @@ export function SiteFooter() {
             {/* Brand */}
             <div className="space-y-4">
               <img
-                src="/images/brand/logoW.png"
+  src="/images/brand/logoW.png"
                 alt="La Cueva Aqua Park"
                 className="h-16 w-auto object-contain"
               />
