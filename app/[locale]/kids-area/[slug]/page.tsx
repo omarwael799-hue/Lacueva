@@ -11,6 +11,27 @@ const slugMap: Record<string, string> = {
   "age-guide": "ageGuide",
 }
 
+const GALLERY: Record<string, string[]> = {
+  slides: [
+    "/images/kids/slides-1.jpg",
+    "/images/kids/slides-2.jpg",
+    "/images/kids/slides-3.jpg",
+    "/images/kids/slides-4.png",
+  ],
+  safety: [
+    "/images/kids/safety-1.png",
+    "/images/kids/safety-2.png",
+    "/images/kids/safety-3.png",
+    "/images/kids/safety-4.png",
+  ],
+  "age-guide": [
+    "/images/kids/age-1.png",
+    "/images/kids/age-2.png",
+    "/images/kids/age-3.png",
+    "/images/kids/age-4.png",
+  ],
+}
+
 export default function KidsSubPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params)
   const { content } = useI18n()
@@ -38,11 +59,11 @@ export default function KidsSubPage({ params }: { params: Promise<{ slug: string
           </FadeUp>
           <FadeUp delay={0.15}>
             <div className="mt-8 grid grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-video rounded-xl bg-gradient-to-br from-sun/20 to-amber-200/30 flex items-center justify-center text-muted-foreground text-sm border border-sun/10">
-                  {content.meta.locale === "ar" ? `صورة ${i}` : `Photo ${i}`}
-                </div>
-              ))}
+              {(GALLERY[slug] ?? []).map((src, i) => (
+  <div key={i} className="aspect-video rounded-xl overflow-hidden border border-sun/10 bg-black/5">
+    <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${src})` }} />
+  </div>
+))}
             </div>
           </FadeUp>
         </div>

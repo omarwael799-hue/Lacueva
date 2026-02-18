@@ -58,15 +58,13 @@ export function SiteFooter() {
   ]
 
   return (
-<footer id="site-footer" className="relative scroll-mt-24">
-      <WaveDivider color="#1a4a7a" />
-      <div className="bg-[#1a4a7a] text-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+<footer id="site-footer" className="relative scroll-mt-24 text-white bg-[#1a4a7a] bg-[url('/images/gallery/backgrounds/footer/footer-bg.PNG')] bg-cover bg-center bg-no-repeat overflow-hidden">  <div className="pointer-events-none absolute inset-0 bg-[#1a4a7a]/80"></div><div className="relative z-10">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div className="space-y-4">
               <img
-                src="https://filebin.net/zy3egmesuud202vv/logo.png"
+                src="https://filebin.net/nqbyfj63whu637xz/logoW.png"
                 alt="La Cueva Aqua Park"
                 className="h-16 w-auto object-contain"
               />

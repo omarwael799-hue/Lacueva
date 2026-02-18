@@ -60,6 +60,7 @@ function SectionShell({
   icon: Icon,
   children,
   tone = "light",
+  softBg,
 }: {
   id: string
   title?: string
@@ -67,15 +68,25 @@ function SectionShell({
   icon?: any
   children: React.ReactNode
   tone?: "light" | "blue"
+  softBg?: string
 }) {
   return (
     <section
       id={id}
       className={`relative overflow-hidden ${
-        tone === "blue" ? "bg-gradient-to-b from-ocean to-[#0b2542] text-white" : "bg-background"
+        tone === "blue" ? "bg-gradient-to-b from-ocean to-[#0b2542] text-white" : (softBg ? "bg-transparent" : "bg-background")
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 py-14 lg:py-20">
+      {softBg ? (
+        <>
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('${softBg}')` }}
+          />
+          <div className="absolute inset-0 bg-white/75" />
+        </>
+      ) : null}
+<div className="relative z-10 mx-auto max-w-7xl px-4 py-14 lg:py-20">
         {title ? (
           <div className="flex items-start gap-4 mb-8">
             <div
@@ -339,11 +350,13 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
       </SectionShell>
 
 {/* About La Cueva */}
-<SectionShell
+<div data-softbg="01" className="relative bg-[url('/images/gallery/backgrounds/section/bg-soft-01.png')] bg-cover bg-center bg-no-repeat">
+  <div className="absolute inset-0 bg-white/70"></div>
+  <div className="relative z-10"><SectionShell
   id="about-lacueva"
   title={isAr ? "من نحن" : "About La Cueva"}
   icon={Building2}
->
+ softBg="/images/gallery/backgrounds/section/bg-soft-01.png">
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
     {/* LOGO */}
@@ -391,7 +404,8 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
     </div>
 
   </div>
-</SectionShell>
+</SectionShell></div>
+</div>
       {/* The Concept */}
       <SectionShell
         id="concept"
@@ -427,7 +441,9 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
       </SectionShell>
 
       {/* Location */}
-      <SectionShell id="location" title={isAr ? "الموقع" : "Location"} icon={MapPin}>
+      <div data-softbg="02" className="relative bg-[url('/images/gallery/backgrounds/section/bg-soft-02.png')] bg-cover bg-center bg-no-repeat">
+  <div className="absolute inset-0 bg-white/70"></div>
+  <div className="relative z-10"><SectionShell id="location" title={isAr ? "الموقع" : "Location"} icon={MapPin} softBg="/images/gallery/backgrounds/section/bg-soft-02.png">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="space-y-3 text-foreground/90 leading-relaxed">
             {isAr ? (
@@ -452,7 +468,8 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
             </p>
           </div>
         </div>
-      </SectionShell>
+      </SectionShell></div>
+</div>
 
       {/* Park Size & Capacity */}
       <SectionShell
@@ -506,7 +523,9 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
       </SectionShell>
 
       {/* Attractions & Rides (cards hover + ONE language) */}
-      <SectionShell id="rides" title={isAr ? "الألعاب والتجارب" : "Attractions & Rides"} icon={Waves}>
+      <div data-softbg="03" className="relative bg-[url('/images/gallery/backgrounds/section/bg-soft-03.png')] bg-cover bg-center bg-no-repeat">
+  <div className="absolute inset-0 bg-white/70"></div>
+  <div className="relative z-10"><SectionShell id="rides" title={isAr ? "الألعاب والتجارب" : "Attractions & Rides"} icon={Waves} softBg="/images/gallery/backgrounds/section/bg-soft-03.png">
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
@@ -558,7 +577,8 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
             </div>
           ))}
         </div>
-      </SectionShell>
+      </SectionShell></div>
+</div>
 
       {/* Entertainment Experience */}
       <SectionShell
@@ -594,7 +614,9 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
       </SectionShell>
 
       {/* Target Segments */}
-      <SectionShell id="segments" title={isAr ? "الفئات المستهدفة" : "Target Segments"} icon={Users}>
+      <div data-softbg="04" className="relative bg-[url('/images/gallery/backgrounds/section/bg-soft-04.png')] bg-cover bg-center bg-no-repeat">
+  <div className="absolute inset-0 bg-white/70"></div>
+  <div className="relative z-10"><SectionShell id="segments" title={isAr ? "الفئات المستهدفة" : "Target Segments"} icon={Users} softBg="/images/gallery/backgrounds/section/bg-soft-04.png">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="rounded-3xl bg-card border border-border/50 p-6">
             {isAr ? (
@@ -626,7 +648,8 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
             </p>
           </div>
         </div>
-      </SectionShell>
+      </SectionShell></div>
+</div>
 
       {/* Safety & Technology */}
       <SectionShell id="safety" title={isAr ? "السلامة والتقنية" : "Safety & Technology"} icon={ShieldCheck} tone="blue">
@@ -665,7 +688,9 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
       </SectionShell>
 
       {/* Facilities & Services */}
-      <SectionShell id="facilities" title={isAr ? "المرافق والخدمات" : "Facilities & Services"} icon={Building2}>
+      <div data-softbg="05" className="relative bg-[url('/images/gallery/backgrounds/section/bg-soft-05.png')] bg-cover bg-center bg-no-repeat">
+  <div className="absolute inset-0 bg-white/70"></div>
+  <div className="relative z-10"><SectionShell id="facilities" title={isAr ? "المرافق والخدمات" : "Facilities & Services"} icon={Building2} softBg="/images/gallery/backgrounds/section/bg-soft-05.png">
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {(
             isAr
@@ -700,7 +725,8 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
             </div>
           ))}
         </div>
-      </SectionShell>
+      </SectionShell></div>
+</div>
 
       {/* Certifications & Awards */}
       <SectionShell id="certs" title={isAr ? "الجودة والاعتمادات" : "Certifications & Awards"} icon={Award} tone="blue">
@@ -737,7 +763,9 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
       </SectionShell>
 
       {/* A Living Brand */}
-      <SectionShell id="brand" title={isAr ? "علامة تُعاش" : "A Living Brand"} icon={Sparkles}>
+      <div data-softbg="06" className="relative bg-[url('/images/gallery/backgrounds/section/bg-soft-06.JPG')] bg-cover bg-center bg-no-repeat">
+  <div className="absolute inset-0 bg-white/70"></div>
+  <div className="relative z-10"><SectionShell id="brand" title={isAr ? "علامة تُعاش" : "A Living Brand"} icon={Sparkles} softBg="/images/gallery/backgrounds/section/bg-soft-06.JPG">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="space-y-3 text-foreground/90 leading-relaxed">
             <p>
@@ -752,7 +780,8 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
             <p>{isAr ? "اللي بييجي مرة… بيرجع تاني." : "Once you visit — you want to come back."}</p>
           </div>
         </div>
-      </SectionShell>
+      </SectionShell></div>
+</div>
 
       {/* The Promise */}
       <SectionShell id="promise" title={isAr ? "الوعد" : "The Promise"} icon={HeartHandshake} tone="blue">

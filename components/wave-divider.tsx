@@ -2,11 +2,9 @@
 
 export function WaveDivider({
   flip = false,
-  color = "#ffffff",
   className = "",
 }: {
   flip?: boolean
-  color?: string
   className?: string
 }) {
   return (
@@ -30,7 +28,7 @@ export function WaveDivider({
             L0,140
             Z
           "
-          fill={color}
+          fill="rgba(26,74,122,0.8)"
         />
       </svg>
     </div>
