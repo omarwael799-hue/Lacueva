@@ -205,7 +205,7 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
         className="mb-6"
       >
         <img
-          src="https://filebin.net/nqbyfj63whu637xz/logoW.png"
+          src="/images/brand/logoW.png"
           alt="La Cueva"
           className="h-20 lg:h-28 w-auto mx-auto object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
         />
