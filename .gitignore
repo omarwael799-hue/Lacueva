@@ -13,3 +13,5 @@ public/videos/
 public/images/gallery/place/*.JPG
 public/images/gallery/place/*.PNG
 public/images/gallery/cabins/*.HEIC
+
+app/[locale]/page.tsx.bak
