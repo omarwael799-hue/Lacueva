@@ -14,23 +14,23 @@ type PageHeroProps = {
  * ✅ About page keeps this (as you requested)
  */
 const DEFAULT_HERO_BG =
-  "https://filebin.net/h3qp5kira63tq4kg/627029956_1200445888926322_3879120956538668317_nk.jpg"
+  "https://filebin.net/h3qp5kira63tq4kg/627029956_1200445888926322_3879120956538668317_nk.webp"
 
 /**
  * ✅ Local hero images (make sure names match EXACTLY — Linux is case-sensitive)
  * Folder: /public/images/gallery/backgrounds/hero
  */
 const HERO = {
-  h1: "/images/gallery/backgrounds/hero/hero-1.png",
-  h2: "/images/gallery/backgrounds/hero/hero-2.png",
-  h3: "/images/gallery/backgrounds/hero/hero-3.JPG",
-  h4: "/images/gallery/backgrounds/hero/hero-4.JPG",
-  h5: "/images/gallery/backgrounds/hero/hero-5.JPG",
-  h6: "/images/gallery/backgrounds/hero/hero-6.JPG",
-  h7: "/images/gallery/backgrounds/hero/hero-7.PNG",
-  h8: "/images/gallery/backgrounds/hero/hero-8.jpeg",
-  h9: "/images/gallery/backgrounds/hero/hero-9.jpg",
-  h10: "/images/gallery/backgrounds/hero/hero-10.jpg",
+  h1: "/images/gallery/backgrounds/hero/hero-1.webp",
+  h2: "/images/gallery/backgrounds/hero/hero-2.webp",
+  h3: "/images/gallery/backgrounds/hero/hero-3.webp",
+  h4: "/images/gallery/backgrounds/hero/hero-4.webp",
+  h5: "/images/gallery/backgrounds/hero/hero-5.webp",
+  h6: "/images/gallery/backgrounds/hero/hero-6.webp",
+  h7: "/images/gallery/backgrounds/hero/hero-7.webp",
+  h8: "/images/gallery/backgrounds/hero/hero-8.webp",
+  h9: "/images/gallery/backgrounds/hero/hero-9.webp",
+  h10: "/images/gallery/backgrounds/hero/hero-10.webp",
 } as const
 
 const SIZE_MAP = {

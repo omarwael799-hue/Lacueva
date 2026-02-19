@@ -116,7 +116,7 @@ export function SiteHeader() {
         {/* Logo */}
         <Link href={`/${locale}`} className="flex-shrink-0">
           <img
-  src="/images/brand/logo.png"
+  src="/images/brand/logo.webp"
             alt="La Cueva Aqua Park"
             className="h-10 lg:h-14 w-auto object-contain"
           />

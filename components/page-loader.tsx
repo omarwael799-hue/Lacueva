@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useI18n } from "@/lib/i18n.client"
 
-const LOGO_URL = "/logo.png"
+const LOGO_URL = "/logo.webp"
 
 // عدّل المدة هنا
 const LOADER_MS = 3200

@@ -13,22 +13,22 @@ const slugMap: Record<string, string> = {
 
 const GALLERY: Record<string, string[]> = {
   slides: [
-    "/images/kids/slides-1.jpg",
-    "/images/kids/slides-2.jpg",
-    "/images/kids/slides-3.jpg",
-    "/images/kids/slides-4.png",
+    "/images/kids/slides-1.webp",
+    "/images/kids/slides-2.webp",
+    "/images/kids/slides-3.webp",
+    "/images/kids/slides-4.webp",
   ],
   safety: [
-    "/images/kids/safety-1.png",
-    "/images/kids/safety-2.png",
-    "/images/kids/safety-3.png",
-    "/images/kids/safety-4.png",
+    "/images/kids/safety-1.webp",
+    "/images/kids/safety-2.webp",
+    "/images/kids/safety-3.webp",
+    "/images/kids/safety-4.webp",
   ],
   "age-guide": [
-    "/images/kids/age-1.png",
-    "/images/kids/age-2.png",
-    "/images/kids/age-3.png",
-    "/images/kids/age-4.png",
+    "/images/kids/age-1.webp",
+    "/images/kids/age-2.webp",
+    "/images/kids/age-3.webp",
+    "/images/kids/age-4.webp",
   ],
 }
 
