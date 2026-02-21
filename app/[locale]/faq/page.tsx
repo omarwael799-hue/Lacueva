@@ -23,7 +23,6 @@ const faqData: Record<string, FAQEntry[]> = {
   tickets: [
     { qAr: "ما أسعار التذاكر للكبار؟", qEn: "What are adult ticket prices?", aAr: "الأسعار تتراوح بين 15–25 دينار للشخص البالغ وتشمل جميع الألعاب المائية والمسابح.", aEn: "Prices range from 15–25 JOD per adult and include all water rides and pools." },
     { qAr: "هل هناك خصومات للأطفال؟", qEn: "Are there discounts for children?", aAr: "نعم، الأطفال دون 12 سنة يحصلون على خصم خاص، والأطفال دون سنتين يدخلون مجاناً.", aEn: "Yes, children under 12 get a special discount, and children under 2 enter for free." },
-    { qAr: "هل يوجد تذاكر عائلية؟", qEn: "Are there family tickets?", aAr: "نعم، تتوفر باقات عائلية مخفضة تشمل دخول جميع أفراد الأسرة.", aEn: "Yes, discounted family packages are available for all family members." },
     { qAr: "هل يمكن شراء التذاكر أونلاين؟", qEn: "Can I buy tickets online?", aAr: "نعم، يمكن الحجز والدفع عبر الموقع الإلكتروني أو تطبيقات الدفع الإلكتروني.", aEn: "Yes, booking and payment are available through the website or eFAWATEERcom." },
     { qAr: "هل هناك اشتراكات موسمية؟", qEn: "Are there seasonal passes?", aAr: "نعم، بطاقات موسمية تسمح بالدخول عدة مرات خلال الصيف.", aEn: "Yes, seasonal passes allow multiple entries throughout the summer." },
     { qAr: "هل يسمح بإعادة الدخول بنفس التذكرة؟", qEn: "Can I re-enter with the same ticket?", aAr: "نعم، يمكن إعادة الدخول بنفس التذكرة في نفس اليوم.", aEn: "Yes, re-entry is allowed on the same day." },
@@ -43,8 +42,8 @@ const faqData: Record<string, FAQEntry[]> = {
     { qAr: "هل هناك ألعاب جديدة في 2026؟", qEn: "Are there new rides in 2026?", aAr: "نعم، يتم إضافة ألعاب جديدة كل موسم.", aEn: "Yes, new rides are added every season." },
   ],
   food: [
-    { qAr: "ما أنواع الطعام المتوفرة؟", qEn: "What food is available?", aAr: "مأكولات وجبات سريعة مثل البيتزا والبرغر والفلافل.", aEn: "Fast food options including pizza, burgers, and falafel." },
-    { qAr: "هل يسمح بإدخال الطعام من الخارج؟", qEn: "Can I bring outside food?", aAr: "لا، حفاظاً على النظافة والسلامة.", aEn: "No, to maintain cleanliness and safety standards." },
+    { qAr: "ما أنواع الطعام المتوفرة؟", qEn: "What food is available?", aAr: "مأكولات وجبات سريعة مثل البيتزا والبرغر.", aEn: "Fast food options including pizza, burgers, and falafel." },
+    { qAr: "هل يسمح بإدخال الطعام والشراب من الخارج؟", qEn: "Can I bring outside food?", aAr: "لا يسمح بإدخال الطعام أو الشراب من الخارج، وذلك وفق سياسة لاكويفا حفاظاً على سلامتكم وضمان أعلى معايير النظافة والجودة داخل الموقع.", aEn: "No outside food or drink is allowed, in accordance with Lacueva's policy to protect your safety and ensure the highest standards of hygiene and quality on site." },
     { qAr: "هل هناك كافيهات تقدم الشيشة؟", qEn: "Are there shisha cafes?", aAr: "نعم، في مناطق مخصصة بعيداً عن الأطفال.", aEn: "Yes, in designated areas away from children." },
     { qAr: "هل هناك وجبات للأطفال؟", qEn: "Are there kids meals?", aAr: "نعم، وجبات صغيرة وخفيفة تناسب الأطفال.", aEn: "Yes, small and light meals designed for kids." },
     { qAr: "هل هناك مشروبات طبيعية؟", qEn: "Are there natural beverages?", aAr: "نعم، عصائر طازجة ومشروبات صحية.", aEn: "Yes, fresh juices and healthy drinks." },
