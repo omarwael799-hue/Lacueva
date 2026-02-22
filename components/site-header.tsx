@@ -81,11 +81,27 @@ function useNavItems(): NavItem[] {
 
 export function SiteHeader() {
   const { locale } = useI18n()
+  const base = `/${locale}`
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const navItems = useNavItems()
   const otherLocale = locale === "ar" ? "en" : "ar"
+  const renderNavLabel = (item: NavItem) => {
+    // Special case: "About La Cueva" => 2 lines, keep "La Cueva" unbroken
+    if (locale === "en" && item.href === `/${locale}/about`) {
+      const parts = String(item.label).split(" ")
+      const first = parts.shift() || ""
+      const rest = parts.join(" ")
+      return (
+        <span className="text-center leading-tight">
+          <span className="block">{first}</span>
+          <span className="block whitespace-nowrap">{rest}</span>
+        </span>
+      )
+    }
+    return item.label
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -123,7 +139,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden xl:flex items-center gap-1">
+        <nav className="hidden xl:flex items-center flex-nowrap gap-0.5">
           {navItems.map((item) => (
             <div
               key={item.href}
@@ -133,13 +149,20 @@ export function SiteHeader() {
             >
               <Link
                 href={item.href}
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`flex items-center gap-1 px-2 py-1.5 text-sm font-medium leading-tight text-center whitespace-normal max-w-[120px]  rounded-lg transition-colors ${
                   scrolled
                     ? "text-ocean hover:text-aqua hover:bg-aqua/10"
                     : "text-white hover:text-sun hover:bg-white/10"
                 }`}
               >
-                {item.label}
+                {item.href === `/about` ? (
+                  <span className="text-center leading-tight">
+                    <span className="block">About</span>
+                    <span className="block">La Cueva</span>
+                  </span>
+                ) : (
+                  item.label
+                )}
                 {item.children && <ChevronDown className="w-3 h-3" />}
               </Link>
 
@@ -215,7 +238,7 @@ export function SiteHeader() {
                     onClick={() => !item.children && setMobileOpen(false)}
                     className="flex items-center justify-between px-4 py-3 text-ocean font-medium rounded-lg hover:bg-aqua/10 transition-colors"
                   >
-                    {item.label}
+                    {renderNavLabel(item)}
                     {item.children && (
                       <ChevronDown
                         className={`w-4 h-4 transition-transform ${

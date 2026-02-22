@@ -55,12 +55,12 @@ export default function LocationPage() {
     {
       icon: Bus,
       label: isAr ? "خدمة النقل" : "Shuttle Service",
-      desc: isAr ? "باصات نقل من عمان إلى المنتزه" : "Shuttle buses from Amman to the park",
+      desc: isAr ? "باصات نقل من عمان إلى المدينة المائية" : "Shuttle buses from Amman to the park",
     },
     {
       icon: Wifi,
       label: isAr ? "واي فاي مجاني" : "Free WiFi",
-      desc: isAr ? "إنترنت مجاني في جميع أنحاء المنتزه" : "Free internet throughout the park",
+      desc: isAr ? "إنترنت مجاني في جميع أنحاء المدينة المائية" : "Free internet throughout the park",
     },
     {
       icon: Navigation,

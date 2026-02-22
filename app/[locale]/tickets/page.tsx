@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n.client"
 import { PageHero } from "@/components/page-hero"
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/motion"
 import { BookingForm } from "@/components/booking-form"
-import { User, Baby, BadgeCheck, AlertTriangle, X } from "lucide-react"
+import { User, Users, Baby, BadgeCheck, AlertTriangle, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 export default function TicketsPage() {
@@ -26,7 +26,7 @@ export default function TicketsPage() {
   <div className="mx-auto max-w-5xl px-4">
 
     <div className="mt-10">
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <StaggerItem>
                 <div className="rounded-2xl overflow-hidden border border-border/50 bg-card h-full">
                   <div className="bg-gradient-to-br from-aqua to-ocean p-6 text-center">
@@ -39,7 +39,18 @@ export default function TicketsPage() {
                   </div>
                 </div>
               </StaggerItem>
-
+<StaggerItem>
+  <div className="rounded-2xl overflow-hidden border border-border/50 bg-card h-full">
+    <div className="bg-gradient-to-br from-sun to-amber-400 p-6 text-center">
+      <Users className="w-10 h-10 text-white mx-auto mb-2" />
+      <h3 className="text-xl font-heading font-black text-white">{(t as any).youth.title}</h3>
+    </div>
+    <div className="p-6 text-center">
+      <p className="text-3xl font-heading font-black text-ocean mb-2">{(t as any).youth.price}</p>
+      <p className="text-sm text-muted-foreground leading-relaxed">{(t as any).youth.desc}</p>
+    </div>
+  </div>
+</StaggerItem>
               <StaggerItem>
                 <div className="rounded-2xl overflow-hidden border border-border/50 bg-card h-full">
                   <div className="bg-gradient-to-br from-sun to-amber-400 p-6 text-center">

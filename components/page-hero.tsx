@@ -14,6 +14,7 @@ type PageHeroProps = {
  * ✅ About page keeps this (as you requested)
  */
 const DEFAULT_HERO_BG = "/images/gallery/backgrounds/hero/hero-11.webp";
+const AGE_GUIDE_HERO = "/images/gallery/backgrounds/hero/place-12.webp";
 /**
  * ✅ Local hero images (make sure names match EXACTLY — Linux is case-sensitive)
  * Folder: /public/images/gallery/backgrounds/hero
@@ -52,6 +53,7 @@ function pickHeroForPath(pathname: string) {
   // Map the rest (change any route key if your folder names differ)
   if (p === "/attractions" || p.startsWith("/attractions/")) return HERO.h2
   if (p === "/about" || p.startsWith("/about/")) return HERO.h11
+  if (p == "/kids-area/age-guide" || p.startsWith("/kids-area/age-guide")) return AGE_GUIDE_HERO
   if (p === "/kids-area" || p.startsWith("/kids-area/")) return HERO.h3
   if (p === "/food" || p.startsWith("/food/")) return HERO.h4
   if (p === "/events" || p.startsWith("/events/")) return HERO.h5

@@ -6,7 +6,7 @@
   },
   "nav": {
     "home": "Home",
-    "about": "About La Cueva",
+    "about": "About LaCueva",
     "aboutOverview": "Overview",
     "aboutVision": "Vision & Mission",
     "aboutSafety": "Safety & Standards",
@@ -258,9 +258,14 @@
     "intro": "Full-day entry tickets include all attractions and facilities, with prices varying by season.",
     "adults": {
       "title": "Adults",
-      "price": "15 – 25 JOD",
-      "desc": "Adult ticket prices range between 15 and 25 JOD depending on the season, and include access to all attractions and facilities inside the water park."
+      "price": "25 JOD",
+      "desc": "Ages 12 and above 25 JOD depending on the season, and include access to all attractions and facilities inside the water park."
     },
+  "youth": {
+    "title": "Youth",
+    "price": "15 JOD",
+    "desc": "Under 12 years old."
+  },
     "kids": {
       "title": "Children",
       "price": "Free",

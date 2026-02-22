@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useMemo, useState } from "react"
 import { useI18n } from "@/lib/i18n.client"
 import { PageHero } from "@/components/page-hero"
 import { motion, AnimatePresence } from "framer-motion"
@@ -8,8 +8,9 @@ import { X, ChevronLeft, ChevronRight, Images, Home, Film } from "lucide-react"
 import { galleryPlace, galleryCabins, galleryVideos } from "./gallery.data"
 
 type Tab = "all" | "place" | "cabins" | "videos"
+
 function getVideoPoster(videoSrc: string) {
-  // /videos/park/xxx.mp4 -> /videos/posters/park/xxx.jpg
+  // /videos/park/park-tour01.MP4 -> /videos/posters/park/park-tour01.jpg
   // /videos/cabins/xxx.mov -> /videos/posters/cabins/xxx.jpg
   const m = videoSrc.match(/^\/videos\/(park|cabins)\/(.+)\.(mp4|mov|m4v|webm)$/i)
   if (!m) return ""
@@ -23,59 +24,17 @@ type Item =
   | { type: "video"; src: string; group: "videos" }
 
 function VideoThumb({ src }: { src: string }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
-
-    let cancelled = false
-
-    const onLoaded = async () => {
-      try {
-        // move slightly off 0 to reliably draw first frame on some browsers
-        v.currentTime = 0.12
-      } catch {}
-    }
-
-    const onSeeked = () => {
-      if (cancelled) return
-      // freeze on the frame
-      v.pause()
-      setReady(true)
-    }
-
-    v.addEventListener("loadeddata", onLoaded)
-    v.addEventListener("seeked", onSeeked)
-
-    const getVideoPoster = (src: string) => {
-  const file = src.split("/").pop() || ""
-  const base = file.replace(/\.[^.]+$/, "") // remove ANY extension (mp4/MOV/MP4/etc)
-  const folder = src.includes("/videos/cabins/") ? "cabins" : "park"
-  return `/videos/posters/${folder}/${base}.jpg`
-}
-
-return () => {
-      cancelled = true
-      v.removeEventListener("loadeddata", onLoaded)
-      v.removeEventListener("seeked", onSeeked)
-    }
-  }, [])
+  const poster = getVideoPoster(src)
 
   return (
     <div className="relative">
       <video
-        ref={videoRef}
         src={src}
+        poster={poster || undefined}
         muted
         playsInline
         preload="metadata"
-        className={[
-          "w-full h-auto block",
-          // reduce shimmer/flicker while metadata arrives
-          ready ? "opacity-100" : "opacity-80",
-        ].join(" ")}
+        className="w-full h-auto block"
       />
       {/* subtle overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -92,9 +51,9 @@ export default function GalleryPage() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const allItems = useMemo<Item[]>(() => {
-    const place = galleryPlace.map((src) => (({ type: "image", src, group: "place" } as const)))
-    const cabins = galleryCabins.map((src) => (({ type: "image", src, group: "cabins" } as const)))
-    const videos = galleryVideos.map((src) => (({ type: "video", src, group: "videos" } as const)))
+    const place = galleryPlace.map((src) => ({ type: "image", src, group: "place" } as const))
+    const cabins = galleryCabins.map((src) => ({ type: "image", src, group: "cabins" } as const))
+    const videos = galleryVideos.map((src) => ({ type: "video", src, group: "videos" } as const))
     return [...place, ...cabins, ...videos]
   }, [])
 
@@ -166,7 +125,7 @@ export default function GalleryPage() {
             })}
           </div>
 
-          {/* Masonry (natural sizes) — faster + less flicker */}
+          {/* Masonry */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
             {items.map((item, index) => (
               <button
@@ -220,7 +179,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Lightbox (fullscreen) */}
+      {/* Lightbox */}
       <AnimatePresence>
         {lightboxIndex !== null && items[lightboxIndex] ? (
           <motion.div
@@ -274,6 +233,7 @@ export default function GalleryPage() {
               ) : (
                 <video
                   src={items[lightboxIndex].src}
+                  poster={getVideoPoster(items[lightboxIndex].src) || undefined}
                   className="w-full h-full object-contain bg-black"
                   controls
                   autoPlay

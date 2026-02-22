@@ -49,7 +49,19 @@ export default function KidsSubPage({ params }: { params: Promise<{ slug: string
 
   return (
     <>
+      {slug === "age-guide" ? (
+      <div className="relative">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url("/images/gallery/backgrounds/hero/place-12.webp")' }}
+        />
+        <div className="relative">
+          <PageHero title={data.title} subtitle={data.desc} />
+        </div>
+      </div>
+    ) : (
       <PageHero title={data.title} subtitle={data.desc} />
+    )}
       <section className="py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-4xl px-4">
           <FadeUp>
