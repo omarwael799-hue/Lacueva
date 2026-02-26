@@ -366,11 +366,11 @@ className="absolute inset-0 bg-cover bg-center opacity-90"
         ${isAr ? "lg:order-1 lg:justify-start" : "lg:order-2 lg:justify-end"}
       `}
     >
-      <img
-        src="https://lh3.googleusercontent.com/proxy/evEbaCpDt7XaUmRHY8FZXfh52LpE0ndJNb2Vxj6WUBDin42pDMJetc1-YAAH8mFc2Ivb1y_IjgI8eU2pQzr9-Agwbh-J"
-        alt="Al-Nabali & Al-Fares Holding"
-        className="w-[220px] md:w-[300px] lg:w-[420px] opacity-90 drop-shadow-[0_30px_70px_rgba(0,0,0,0.2)]"
-      />
+<img
+  src="/nabali logo.webp"
+  alt="Al-Nabali & Al-Fares"
+  className="h-80 w-auto object-contain opacity-95"
+/>
     </div>
 
     {/* TEXT */}

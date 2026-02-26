@@ -46,6 +46,7 @@ export function SiteFooter() {
     { label: content.nav.tickets, href: `${p}/tickets` },
     { label: content.nav.gallery, href: `${p}/gallery` },
     { label: content.nav.contact, href: `${p}/contact` },
+{ label: locale === "ar" ? "الشروط والأحكام" : "Terms & Conditions", href: `${p}/terms` },
   ]
 
   const serviceLinks = [
@@ -159,16 +160,33 @@ export function SiteFooter() {
 
           {/* Bottom bar */}
           <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
-            <p>
-              &copy; {new Date().getFullYear()} La Cueva Aqua Park. {content.footer.rights}.
-            </p>
+<p className="text-white/50 leading-relaxed text-center sm:text-left">
+  <span className="block sm:inline">
+    &copy; {new Date().getFullYear()} La Cueva Aqua Park. {content.footer.rights}.
+  </span>
+
+  <span className="hidden sm:inline mx-2 opacity-40">|</span>
+
+  <span className="block sm:inline mt-2 sm:mt-0">
+    <span className="opacity-80">Powered by:</span>{" "}
+    <a
+      href="https://brandmeon.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-semibold text-white/90 hover:text-sun transition-colors"
+    >
+      BrandMeOn.com
+    </a>
+  </span>
+</p>
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md">
-  <img
-    src="https://lh3.googleusercontent.com/proxy/evEbaCpDt7XaUmRHY8FZXfh52LpE0ndJNb2Vxj6WUBDin42pDMJetc1-YAAH8mFc2Ivb1y_IjgI8eU2pQzr9-Agwbh-J"
-    alt="Al-Nabali & Al-Fares"
-    className="h-10 w-auto object-contain opacity-95"
-  />
+<img
+  src="/nabali logo.webp"
+  alt="Al-Nabali & Al-Fares"
+  className="h-16 w-auto object-contain opacity-95"
+/>
 </div>
+
           </div>
         </div>
       </div>
